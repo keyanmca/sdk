@@ -1,0 +1,8 @@
+Build 16019
+
+* Updated copyright notices and logos
+* Modified screen.css to remove 960px width limitation
+
+build 12705
+
+ * initial release
