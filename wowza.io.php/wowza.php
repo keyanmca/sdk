@@ -1,7 +1,10 @@
 <?php
-//Examples
-// https://support.ladesk.com/061754-How-to-make-REST-calls-in-PHP
-// In ubuntu: sudi aptitude install  php5-curl
+
+//    site: www.wowza.io
+//    author: Carlos Camacho
+//    email: carloscamachoucv@gmail.com
+//    created: 12/11/2015
+
 
 class Wowza{
 

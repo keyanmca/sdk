@@ -1,3 +1,8 @@
+//    site: www.wowza.io
+//    author: Carlos Camacho
+//    email: carloscamachoucv@gmail.com
+//    created: 12/11/2015
+
 package
 {
 	import flash.display.DisplayObject;
