@@ -6,6 +6,7 @@
 package
 {
 	import flash.display.DisplayObject;
+	import flash.display.LoaderInfo;
 	import flash.display.Sprite;
 	import flash.events.NetStatusEvent;
 	import flash.media.Camera;
@@ -19,8 +20,7 @@ package
 	import flash.net.NetStream;
 	import flash.text.TextField;
 	import flash.text.TextFormat;
-	import flash.text.engine.TextElement;
-	import flash.display.LoaderInfo;	
+	//import flash.text.engine.TextElement;	
 	
 	
 	[SWF( width="940", height="880" )]
@@ -62,10 +62,10 @@ package
 			//Connect to the live folder on the server
 			//nc.connect("rtmp://127.0.0.1:8086/mocoloco");
 
-			var _paramObj = LoaderInfo(stage.loaderInfo).parameters;
-			var aaa:String;
-			aaa = _paramObj['wowzaServerAndApplication'];
-			nc.connect(aaa);
+			var _paramObj:Object = LoaderInfo(stage.loaderInfo).parameters;
+			var connectionMediaServerString:String;
+			connectionMediaServerString = _paramObj['wowzaServerAndApplication'];
+			nc.connect(connectionMediaServerString);
 			///nc.connect("rtmp://127.0.0.1:1935/rugabuga");
 			//nc.connect("rtmp://YOUR_SERVER_URL/live");
 			//Tell the NetConnection where the server should invoke callback methods
