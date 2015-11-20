@@ -1,0 +1,152 @@
+{
+    "version": "1447946011470",
+    "name": "{{ applicationName }}",
+    "appType": "Live",
+    "applicationTimeout": 0,
+    "pingTimeout": 0,
+    "repeaterQueryString": "",
+    "clientStreamReadAccess": "*",
+    "clientStreamWriteAccess": "*",
+    "avSyncMethod": "senderreport",
+    "maxRTCPWaitTime": 12000,
+    "httpStreamers": [
+        "cupertinostreaming",
+        "smoothstreaming",
+        "sanjosestreaming",
+        "mpegdashstreaming"
+    ],
+    "mediaReaderRandomAccessReaderClass": "",
+    "httpOptimizeFileReads": false,
+    "mediaReaderBufferSeekIO": false,
+    "captionLiveIngestType": "",
+    "vodTimedTextProviders": [
+        "vodcaptionprovidermp4_3gpp"
+    ],
+    "securityConfig": {
+        "secureTokenVersion": 2,
+        "clientStreamWriteAccess": "*",
+        "publishRequirePassword": false,
+        "publishPasswordFile": "",
+        "publishRTMPSecureURL": "",
+        "publishIPBlackList": "",
+        "publishIPWhiteList": "",
+        "publishBlockDuplicateStreamNames": false,
+        "publishValidEncoders": "",
+        "publishAuthenticationMethod": "none",
+        "playMaximumConnections": 0,
+        "playRequireSecureConnection": false,
+        "secureTokenSharedSecret": "{{ sharedSecret }}",
+        "secureTokenUseTEAForRTMP": false,
+        "secureTokenIncludeClientIPInHash": true,
+        "secureTokenHashAlgorithm": "SHA-256",
+        "secureTokenQueryParametersPrefix": "{{ wowzaParameterPrefix }}",
+        "secureTokenOriginSharedSecret": "",
+        "playIPBlackList": "",
+        "playIPWhiteList": "",
+        "playAuthenticationMethod": "none"
+    },
+    "streamConfig": {
+        "streamType": "live-lowlatency",
+        "storageDir": "${com.wowza.wms.context.VHostConfigHome}\/content",
+        "createStorageDir": false,
+        "storageDirExists": true,
+        "keyDir": "${com.wowza.wms.context.VHostConfigHome}\/keys",
+        "liveStreamPacketizer": [
+            "cupertinostreamingpacketizer",
+            "mpegdashstreamingpacketizer",
+            "sanjosestreamingpacketizer",
+            "smoothstreamingpacketizer"
+        ],
+        "httpRandomizeMediaName": false
+    },
+    "dvrConfig": {
+        "licenseType": "Trial",
+        "inUse": false,
+        "dvrEnable": false,
+        "windowDuration": 0,
+        "storageDir": "${com.wowza.wms.context.VHostConfigHome}\/dvr",
+        "archiveStrategy": "append",
+        "dvrOnlyStreaming": false,
+        "startRecordingOnStartup": true,
+        "dvrEncryptionSharedSecret": "",
+        "dvrMediaCacheEnabled": false,
+        "httpRandomizeMediaName": false
+    },
+    "drmConfig": {
+        "licenseType": "Trial",
+        "inUse": false,
+        "cupertinoEncryptionAPIBased": false,
+        "ezDRMUsername": "",
+        "ezDRMPassword": "",
+        "buyDRMUserKey": "",
+        "buyDRMProtectSmoothStreaming": false,
+        "buyDRMProtectCupertinoStreaming": false,
+        "buyDRMProtectMpegDashStreaming": false,
+        "verimatrixProtectCupertinoStreaming": false,
+        "verimatrixCupertinoKeyServerIpAddress": "",
+        "verimatrixCupertinoKeyServerPort": 0,
+        "verimatrixCupertinoVODPerSessionKeys": false,
+        "verimatrixProtectSmoothStreaming": false,
+        "verimatrixSmoothKeyServerIpAddress": "",
+        "verimatrixSmoothKeyServerPort": 0
+    },
+    "transcoderConfig": {
+        "available": true,
+        "licensed": true,
+        "licenses": 1,
+        "licensesInUse": 1,
+        "templates": {
+            "templates": [
+                {
+                    "id": "audioonly",
+                    "href": "\/v2\/servers\/_defaultServer_\/vhosts\/_defaultVHost_\/applications\/{{ application_name }}\/transcoder\/templates\/audioonly"
+                },
+                {
+                    "id": "transcode-h265-divx",
+                    "href": "\/v2\/servers\/_defaultServer_\/vhosts\/_defaultVHost_\/applications\/{{ application_name }}\/transcoder\/templates\/transcode-h265-divx"
+                },
+                {
+                    "id": "transcode",
+                    "href": "\/v2\/servers\/_defaultServer_\/vhosts\/_defaultVHost_\/applications\/{{ application_name }}\/transcoder\/templates\/transcode"
+                },
+                {
+                    "id": "transrate",
+                    "href": "\/v2\/servers\/_defaultServer_\/vhosts\/_defaultVHost_\/applications\/{{ application_name }}\/transcoder\/templates\/transrate"
+                }
+            ]
+        },
+        "liveStreamTranscoder": "transcoder",
+        "templatesInUse": "${SourceStreamName}.xml,audioonly.xml",
+        "profileDir": "${com.wowza.wms.context.VHostConfigHome}\/transcoder\/profiles",
+        "templateDir": "${com.wowza.wms.context.VHostConfigHome}\/transcoder\/templates",
+        "createTemplateDir": false
+    },
+    "modules": {
+        "moduleList": [
+            {
+                "order": 0,
+                "name": "base",
+                "description": "Base",
+                "class": "com.wowza.wms.module.ModuleCore"
+            },
+            {
+                "order": 1,
+                "name": "logging",
+                "description": "Client Logging",
+                "class": "com.wowza.wms.module.ModuleClientLogging"
+            },
+            {
+                "order": 2,
+                "name": "flvplayback",
+                "description": "FLVPlayback",
+                "class": "com.wowza.wms.module.ModuleFLVPlayback"
+            },
+            {
+                "order": 3,
+                "name": "ModuleCoreSecurity",
+                "description": "Core Security Module for Applications",
+                "class": "com.wowza.wms.security.ModuleCoreSecurity"
+            }
+        ]
+    }
+}

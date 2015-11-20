@@ -1,6 +1,6 @@
 {
     "version": "1447228357818",
-    "name": "{{ application_name }}",
+    "name": "{{ applicationName }}",
     "appType": "Live",
     "applicationTimeout": 0,
     "pingTimeout": 0,

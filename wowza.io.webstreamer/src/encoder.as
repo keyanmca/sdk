@@ -60,7 +60,7 @@ package
 			nc.addEventListener(NetStatusEvent.NET_STATUS, onNetStatus);
 			//Connect to the live folder on the server
 			//nc.connect("rtmp://127.0.0.1:8086/mocoloco");
-			nc.connect("rtmp://127.0.0.1:1935/mocoloco");
+			nc.connect("rtmp://127.0.0.1:1935/rugabuga");
 			//nc.connect("rtmp://YOUR_SERVER_URL/live");
 			//Tell the NetConnection where the server should invoke callback methods
 			nc.client = this;

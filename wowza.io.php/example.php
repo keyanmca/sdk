@@ -6,17 +6,16 @@
 //    created: 12/11/2015
 require('wowza.php');
 
-
-
-
-
 $wow = new Wowza("127.0.0.1:8087");
 
-
 //print ($wow->getApplications());
-//print ($wow->createApplication("wakawaka"));
+//print ($wow->createNonSecuredApplication("wakawaka33"));
+//print ($wow->createSecuredApplication("rugabuga88"));
 //print ($wow->deleteApplication("wakawaka"));
-//$wow->dumpApplicationConfig("mocoloco");
+//$wow->dumpApplicationConfig("wakawaka");
+
+$wow->deleteAllApplications();
+
 
 
 
