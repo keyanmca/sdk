@@ -41,7 +41,10 @@
             // To use express install, set to playerProductInstall.swf, otherwise the empty string. 
             var xiSwfUrlStr = "playerProductInstall.swf";
             var flashvars = {};
-            var params = {};
+							//escape('<?php print $test ?>');
+            flashvars.wowzaServerAndApplication = "rtmp://127.0.0.1:1935/rugabuga";
+
+			var params = {};
             params.quality = "high";
             params.bgcolor = "#ffffff";
             params.allowscriptaccess = "sameDomain";

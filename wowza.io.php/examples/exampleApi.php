@@ -4,17 +4,18 @@
 //    author: Carlos Camacho
 //    email: carloscamachoucv@gmail.com
 //    created: 12/11/2015
-require('wowza.php');
+require('../libs/wowza.php');
 
 $wow = new Wowza("127.0.0.1:8087");
 
-//print ($wow->getApplications());
-//print ($wow->createNonSecuredApplication("wakawaka33"));
-//print ($wow->createSecuredApplication("rugabuga88"));
+$wow->deleteAllApplications();
+print ($wow->getApplications());
+print ($wow->createNonSecuredApplication("rugabuga"));
+//print ($wow->createSecuredApplication("rugabuga"));
 //print ($wow->deleteApplication("wakawaka"));
 //$wow->dumpApplicationConfig("wakawaka");
 
-$wow->deleteAllApplications();
+
 
 
 

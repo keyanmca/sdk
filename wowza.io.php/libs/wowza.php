@@ -6,7 +6,7 @@
 //    created: November 2015
 //    Use camelCase for variable names and method names....
 
-require './libs/Mustache/Autoloader.php';
+require '../includes/Mustache/Autoloader.php';
 Mustache_Autoloader::register();
 
 
@@ -137,7 +137,7 @@ class Wowza{
 		$data = array('applicationName' => $applicationName);
 		$service_url = "http://".$this->wowzaServer."/v2/servers/_defaultServer_/vhosts/_defaultVHost_/applications/".$applicationName;
 		$curl = curl_init($service_url);
-		$config_file = $fichero = file_get_contents('../wowza.io.templates/defaultNonSecuredApplication.json', FILE_USE_INCLUDE_PATH);
+		$config_file = $fichero = file_get_contents('../../wowza.io.templates/defaultNonSecuredApplication.json', FILE_USE_INCLUDE_PATH);
 		$configData = $m->render($config_file,$data);
 		$headers = array(
 		'Content-Type: application/json; charset=utf-8',
@@ -171,7 +171,7 @@ class Wowza{
 		);
 		$service_url = "http://".$this->wowzaServer."/v2/servers/_defaultServer_/vhosts/_defaultVHost_/applications/".$applicationName;
 		$curl = curl_init($service_url);
-		$config_file = $fichero = file_get_contents('../wowza.io.templates/defaultSecuredApplication.json', FILE_USE_INCLUDE_PATH);
+		$config_file = $fichero = file_get_contents('../../wowza.io.templates/defaultSecuredApplication.json', FILE_USE_INCLUDE_PATH);
 		$configData = $m->render($config_file,$data);
 		$headers = array(
 		'Content-Type: application/json; charset=utf-8',

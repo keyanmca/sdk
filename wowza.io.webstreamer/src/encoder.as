@@ -8,18 +8,19 @@ package
 	import flash.display.DisplayObject;
 	import flash.display.Sprite;
 	import flash.events.NetStatusEvent;
-	import flash.text.TextField;
-	import flash.text.TextFormat;
 	import flash.media.Camera;
-	import flash.media.Microphone;
-	import flash.media.SoundCodec;
 	import flash.media.H264Level;
 	import flash.media.H264Profile;
 	import flash.media.H264VideoStreamSettings;
+	import flash.media.Microphone;
+	import flash.media.SoundCodec;
 	import flash.media.Video;
 	import flash.net.NetConnection;
 	import flash.net.NetStream;
-	
+	import flash.text.TextField;
+	import flash.text.TextFormat;
+	import flash.text.engine.TextElement;
+	import flash.display.LoaderInfo;	
 	
 	
 	[SWF( width="940", height="880" )]
@@ -60,7 +61,12 @@ package
 			nc.addEventListener(NetStatusEvent.NET_STATUS, onNetStatus);
 			//Connect to the live folder on the server
 			//nc.connect("rtmp://127.0.0.1:8086/mocoloco");
-			nc.connect("rtmp://127.0.0.1:1935/rugabuga");
+
+			var _paramObj = LoaderInfo(stage.loaderInfo).parameters;
+			var aaa:String;
+			aaa = _paramObj['wowzaServerAndApplication'];
+			nc.connect(aaa);
+			///nc.connect("rtmp://127.0.0.1:1935/rugabuga");
 			//nc.connect("rtmp://YOUR_SERVER_URL/live");
 			//Tell the NetConnection where the server should invoke callback methods
 			nc.client = this;
