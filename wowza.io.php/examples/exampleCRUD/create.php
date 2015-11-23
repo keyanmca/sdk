@@ -1,7 +1,8 @@
 <?php 
 	
 	require 'database.php';
-	require("C:/Users/carlos.camacho/Dropbox/MyRepositories/wowza.io/wowza.io.php/libs/wowza.php");
+	//require("C:/Users/carlos.camacho/Dropbox/MyRepositories/wowza.io/wowza.io.php/libs/wowza.php");
+	require($_SERVER["DOCUMENT_ROOT"].'/libs/wowza.php');
 
 	$wowzaServerIP = "127.0.0.1";
 	$wow = new Wowza($wowzaServerIP.":8087");
