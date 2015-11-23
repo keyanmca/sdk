@@ -6,9 +6,10 @@
 //    created: November 2015
 //    Use camelCase for variable names and method names....
 
-require '../includes/Mustache/Autoloader.php';
-Mustache_Autoloader::register();
 
+//Luego crear un archivo maestro de configuracion...
+require ('C:/Users/carlos.camacho/Dropbox/MyRepositories/wowza.io/wowza.io.php/includes/Mustache/Autoloader.php');
+Mustache_Autoloader::register();
 
 
 class Wowza{
