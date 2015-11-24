@@ -12,11 +12,13 @@
 <body>
     <div class="container">
     		<div class="row">
-    			<h3>PHP CRUD Grid</h3>
+    			<h3>Wowza.io CRUD Grid</h3>
     		</div>
 			<div class="row">
 				<p>
 					<a href="create.php" class="btn btn-success">Create</a>
+					<a href="destroy.php" class="btn btn-danger">Remove all</a>
+
 				</p>
 				
 				<table class="table table-striped table-bordered">

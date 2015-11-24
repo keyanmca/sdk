@@ -1,5 +1,4 @@
 <?php 
-
 	require 'database.php';
 	require(dirname(dirname(dirname(__FILE__))).'/libs/wowza.php');
 
@@ -19,17 +18,11 @@
 		// delete data
 		$pdo = Database::connect();
 		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		
-		$sql = "SELECT name FROM streams where id = ?";
-		$q = $pdo->prepare($sql);
-		$q->execute(array($id));
-		$data = $q->fetch(PDO::FETCH_ASSOC);		
 
-		$sql = "DELETE FROM streams  WHERE id = ?";
-		$q = $pdo->prepare($sql);
-		$q->execute(array($id));
+		$deleteTable = $pdo->prepare("DELETE FROM streams");
+  		$deleteTable->execute();
 
-		$wow->deleteApplication($data['name']);
+		$wow->deleteAllApplications();
 
 		Database::disconnect();
 		header("Location: index.php");
@@ -50,12 +43,12 @@
     
     			<div class="span10 offset1">
     				<div class="row">
-		    			<h3>Delete an application</h3>
+		    			<h3>Delete all applications</h3>
 		    		</div>
 		    		
-	    			<form class="form-horizontal" action="delete.php" method="post">
+	    			<form class="form-horizontal" action="destroy.php" method="post">
 	    			  <input type="hidden" name="id" value="<?php echo $id;?>"/>
-					  <p class="alert alert-error">Are you sure to delete?</p>
+					  <p class="alert alert-error">Are you sure to delete all the applications?</p>
 					  <div class="form-actions">
 						  <button type="submit" class="btn btn-danger">Yes</button>
 						  <a class="btn" href="index.php">No</a>

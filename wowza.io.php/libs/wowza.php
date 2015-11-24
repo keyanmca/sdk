@@ -7,10 +7,7 @@
 //    Use camelCase for variable names and method names....
 
 
-//Luego crear un archivo maestro de configuracion...
-//require ('C:/Users/carlos.camacho/Dropbox/MyRepositories/wowza.io/wowza.io.php/includes/Mustache/Autoloader.php');
-require($_SERVER["DOCUMENT_ROOT"].'/includes/Mustache/Autoloader.php');
-
+require(dirname(dirname(__FILE__)).'/includes/Mustache/Autoloader.php');
 Mustache_Autoloader::register();
 
 
@@ -140,11 +137,7 @@ class Wowza{
 		$data = array('applicationName' => $applicationName);
 		$service_url = "http://".$this->wowzaServer."/v2/servers/_defaultServer_/vhosts/_defaultVHost_/applications/".$applicationName;
 		$curl = curl_init($service_url);
-
-		$config_file = $fichero = file_get_contents('C:/Users/carlos.camacho/Dropbox/MyRepositories/wowza.io/wowza.io.templates/defaultNonSecuredApplication.json', FILE_USE_INCLUDE_PATH);
-		//$config_file = $fichero = file_get_contents('../../wowza.io.templates/defaultNonSecuredApplication.json', FILE_USE_INCLUDE_PATH);
-
-
+		$config_file = file_get_contents(dirname(dirname(dirname(__FILE__))).'/wowza.io.templates/defaultNonSecuredApplication.json', FILE_USE_INCLUDE_PATH);
 		$configData = $m->render($config_file,$data);
 		$headers = array(
 		'Content-Type: application/json; charset=utf-8',
@@ -178,8 +171,7 @@ class Wowza{
 		);
 		$service_url = "http://".$this->wowzaServer."/v2/servers/_defaultServer_/vhosts/_defaultVHost_/applications/".$applicationName;
 		$curl = curl_init($service_url);
-		$config_file = $fichero = file_get_contents('C:/Users/carlos.camacho/Dropbox/MyRepositories/wowza.io/wowza.io.templates/defaultSecuredApplication.json', FILE_USE_INCLUDE_PATH);
-		//$config_file = $fichero = file_get_contents('../../wowza.io.templates/defaultSecuredApplication.json', FILE_USE_INCLUDE_PATH);
+		$config_file = file_get_contents(dirname(dirname(dirname(__FILE__))).'/wowza.io.templates/defaultSecuredApplication.json', FILE_USE_INCLUDE_PATH);
 		$configData = $m->render($config_file,$data);
 		$headers = array(
 		'Content-Type: application/json; charset=utf-8',
