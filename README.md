@@ -5,32 +5,32 @@ Wowza.io main repository
 wowza.io should work with most wowza standard installations.
 
 ###Implementations##
-*PHP (Working progress)
+* PHP (Working progress)
 
-*Python (Coming next)
+* Python (Coming next)
 
-*.Net (Nice to have)
+* .Net (Nice to have)
 
 ###Technologies###
 wowza.io uses the following projects/softwares without having any direct relation with them:
 
-*Mustache "The logic-less template manager" <https://mustache.github.io/>
+* Mustache "The logic-less template manager" <https://mustache.github.io/>
 
-*Wowza Media Systems "The pro-grade service for live streaming" <https://www.wowza.com/>
+* Wowza Media Systems "The pro-grade service for live streaming" <https://www.wowza.com/>
 
 
 ###Functionalities###
--Create plain application.
+- Create plain application.
 
--Create secured application.
+- Create secured application.
 
--Delete application.
+- Delete application.
 
--Delete all application.
+- Delete all application.
 
--Get applications list.
+- Get applications list.
 
--Get application configuration.
+- Get application configuration.
 
 ###Author###
 Carlos Camacho
